@@ -1,0 +1,43 @@
+<div class="container">
+<div class="left">
+    <a class="profile">
+        
+        <div class="profile-photo">
+            <img src="/assets/images/profile-1.jpg">
+        </div>
+        <div class="handle">
+            <h4>{{ this.user.nom }} {{ this.user.prenom }}</h4>
+
+
+            <p class="text-muted">  </p>
+        </div>
+    </a>
+<!----------------- SIDEBAR -------------------->
+<div class="sidebar">
+<a class="menu-item active" routerLink="/userInter/fyp" routerLinkActive="router-link-active"[class.active]="activeMenuItem === 'home'"
+(click)="toggleMenuItem('home')" >
+    <i class="uil uil-home"  ></i>
+    
+    <h3>Home</h3>
+</a>
+<a class="menu-item" routerLink="/userInter/espaceClasse" [class.active]="activeMenuItem === 'espaceClasse'"
+(click)="toggleMenuItem('espaceClasse')" >
+    <span><i class="uil uil-compass"></i></span>
+    <h3>Classroom Space</h3>
+</a>
+<a class="menu-item" id="notifications"  routerLink="/userInter/profile"  [class.active]="activeMenuItem === 'profile'"
+(click)="toggleMenuItem('profile')">
+    <span><i class="far fa-user"></i></span>
+    <h3>Profil</h3>
+    
+</a>
+ 
+<a class="menu-item"  routerLink="/userInter/setting" [class.active]="activeMenuItem === 'setting'"
+(click)="toggleMenuItem('setting')">
+    <span><i class="uil uil-setting"></i></span>
+    <h3>Setting</h3>
+</a>
+</div>
+<label class="btn btn-primary" for="create-post"> <button (click)="logout()">LOGOUT</button></label>
+
+

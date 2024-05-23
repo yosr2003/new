@@ -1,0 +1,10 @@
+.mat-calendar-header th {
+    /* Adjust font size and other properties as needed */
+    font-size: 9px;
+  }
+  
+  /* Optionally, shorten the day labels */
+  .mat-calendar-header th abbr {
+    /* Set a custom abbreviation for each day */
+    content: attr(aria-label);
+  }

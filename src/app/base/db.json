@@ -1,0 +1,11 @@
+{
+    "users": [
+      { "id": 1, "email": "Ahmed.BenAhmed@gmail.com", "password": "ahmed@000" },
+      { "id": 2, "email": "karim.hamid@gmail.com", "password": "karim@123" },
+      { "id": 4, "email": "mk.doe@example.com", "password": "password123" },
+      { "id": 5, "email": "john.doe@example.com", "password": "password123" },
+      { "id": 6, "email": "yosr.amamou@gamil.com", "password": "password000" },
+      { "id": 8, "email": "said.taki@example.com", "password": "takitaki123" }
+
+    ]
+  }

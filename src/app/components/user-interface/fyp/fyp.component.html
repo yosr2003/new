@@ -1,0 +1,84 @@
+<main>
+  <div class="container">
+       
+       <div class="middle">
+        <form >
+          <div class="createPost">
+            <h3 class="mini-heading">Create Post</h3>
+            <input type="text" placeholder="What's on your mind?"  name="contenu" (input)="onContenuChange($event)" >
+        
+            <div class="post-icon">
+              <label for="attachment" class="custom-file-input">
+                <i class="fa-regular fa-file"></i>
+                File
+                <input type="file" id="attachment" (change)="onFileSelected($event)" multiple>  
+              </label>
+              <span>{{ piecesJointes.length }} file(s) selected</span>
+            </div>
+            
+            <input type="button" value="Post" class="btn btn-primary" (click)="save()">
+          </div>
+        </form>
+        
+      
+
+
+
+      <!-- Liste des posts -->
+      <div class="feeds">
+        <div class="feed" *ngFor="let post of posts">
+          <div class="head">
+            <div class="user">
+              <div class="info"><!-- Vérifier si post.user est défini avant d'afficher le nom et le prénom -->
+                <h3>{{ post.userDetails?.nom }} {{ post.userDetails?.prenom }}</h3>
+                
+                <small>{{ post.published | date: 'short' }}</small>
+              </div>
+            </div>
+            <span class="edit">
+              <i class="uil uil-ellipsis-h"></i>
+            </span>
+          </div>
+  
+          <div class="photo">
+            <p>{{ post.contenu }}</p>
+            <div *ngFor="let piece of post.pieces_jointes">
+                <!-- Utilisez l'URL relative pour afficher les pièces jointes -->
+                <img *ngIf="piece.typePiece === 'image/png'" [src]="'http://127.0.0.1:8000/media/' + piece.nomPiece" alt="Piece jointe">
+                <span *ngIf="piece.typePiece !== 'image/png'">{{ piece.nomPiece }}</span>
+            </div>
+        </div>
+        <!-- -------------------------------------like------------------------------------------------------------- -->
+  
+        <div class="action-buttons">
+          <div class="interaction-buttons">
+              <span class="like-btn" [class.liked]="post.liked" (click)="toggleLike(post)"><i class="uil uil-heart"></i></span>
+              <span class="comment-btn"><i class="uil uil-comment-dots"></i></span>
+          </div>
+      </div>
+      <!-- ----------------------------------------------like------------------------------------------------------------------->
+  
+      <div class="comments">
+        <div class="comment-input">
+            <input type="text" placeholder="Ajouter un commentaire..." #commentText>
+            <button class="comment-submit" (click)="addComment(post.idPost, commentText.value)">Poster</button>
+        </div>
+        <div class="comment-list">
+            <!-- Afficher les commentaires avec les noms des utilisateurs -->
+            <div *ngFor="let comment of post.commentaires">
+                <strong>{{ comment.userDetails?.nom }} {{ comment.userDetails?.prenom }} :</strong>
+                <span>{{ comment.contenu }}</span>
+            </div>
+        </div>
+    </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="calen">
+        <!-- <app-calendrier></app-calendrier> -->
+      </div>
+    </div>
+  </div>
+</main>

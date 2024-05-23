@@ -1,0 +1,28 @@
+ /* .sideb {
+    
+    position: relative;
+    top: 100px;
+    left: 140px;
+    transition: left 0.3s ease;
+}  
+.maincontent{
+    display: grid;
+    grid-template-columns: 25vw auto  20vw;
+    column-gap: 2rem;
+    position: relative;
+}
+@media screen and (max-width: 1200px) {
+
+    .maincontent  {
+        grid-template-columns: 5rem auto 30vw;
+        gap: 1rem;
+    }
+    
+    .maincontent .middle {
+        grid-column: 1/3;
+    }
+    .maincontent .calendrier {
+        display: none;
+    }
+   
+} */

@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<header id="header" class="header">
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+    <nav id="navbar" class="navbar">
+      
+      <ul>
+        <li><img src="/assets/images/isetLogo.png" alt="" class="logo d-flex align-items-center"> </li>
+        <li><a class="nav-link scrollto " routerLink="/espaceClasse" >Home</a></li>
+        <li><a class="nav-link scrollto" (click)="togglePopup()">courses </a></li>
+        <li><a class="nav-link scrollto" >About us</a></li>
+        <li><a class="nav-link scrollto" >Contacts</a></li>
+        
+        
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+  </div>
+</header>
+<section id="hero" class="hero d-flex align-items-center">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column justify-content-center">
+        </div>
+      </div>
+      
+    </div>
+
+</section>
+
+
+<br>
+
+<section id="about" class="about">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>About</h2>
+    </div>
+
+    <div class="row content">
+      <div class="col-lg-12 d-flex flex-column align-items-center text-center">
+        <p>
+            Welcome to our university's dedicated communication platform.
+        </p>
+        <a class="btn-learn-more" (click)="togglePopup()" >{{ buttonText }}</a>
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+
+<br>
+<section>
+  <div class="popuptext" id="myPopup" *ngIf="isPopupVisible">
+    <app-login></app-login>
+  </div>
+</section>
+
+
+
+
+<footer class="footer-bottom">
+  <div class="container clearfix">
+    <div class="copyright">
+        © Copyright 2020 ISET CHARGUIA Tous droits réservés. 
+
+    </div>
+    <div class="contacts" id="cont">
+        
+        Adresse: 47, Rue des Entrepreneurs Charguia II - 2035 Tunisie <br>
+        Tél: (+216) 71 940 322 / 71 940292 / Fax: (+216) 71 940 370
+    </div>
+  </div>
+</footer>

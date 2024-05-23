@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<div class="wrapper bg-white p-4">
+    <div class="h4 text-muted text-center pt-2">Enter your login details</div>
+    <form class="pt-3" [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-group py-2">
+            <div class="input-field d-flex align-items-center">
+                <span class="far fa-user p-2"></span>
+                <input type="text" placeholder="Email Address" required class="form-control" formControlName="email">
+            </div>
+            <div *ngIf="useroblig()" class="text-danger">Email address is required and must be valid.</div>
+        </div>
+        <div class="form-group py-1 pb-2">
+            <div class="input-field d-flex align-items-center">
+                <span class="fas fa-lock p-2"></span>
+                <input type="password" placeholder="Enter your Password" required class="form-control" formControlName="password">
+            </div>
+            <div *ngIf="pwdoblig()" class="text-danger">Password is required.</div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block text-center my-3" [disabled]="!loginForm.valid">Login</button>
+    </form>
+</div>

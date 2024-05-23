@@ -1,0 +1,190 @@
+ .container .left {
+    height: max-content;
+    position: sticky;
+    top: 700px;
+}
+
+.container .left .profile {
+    padding: var(--card-padding);
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    width: 100%;
+}
+
+/* =============== Sidebar ============== */
+.container  .left .sidebar {
+    margin-top: 1rem;
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+}
+
+.container .left .sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    cursor: pointer;
+    transition: all 300ms ease;
+    position: relative;
+}
+
+.container .left .sidebar .menu-item:hover {
+    background: var(--color-light);
+}
+
+.container .left .sidebar i {
+    font-size: 1.4rem;
+    color: var(--color-grey);
+    margin-left: 2rem;
+    position: relative;
+}
+
+.container .left .sidebar i .notification-count {
+    background: var(--color-danger);
+    color: white;
+    font-size: 0.7rem;
+    width: fit-content;
+    border-radius: 0.8rem;
+    padding: 0.1rem 0.4rem;
+    position: absolute;
+    top: -0.2rem;
+    right: -0.3rem;
+}
+
+.container .left .sidebar h3 {
+    margin-left: 1.5rem;
+    font-size: 1rem;
+}
+
+.container .left .sidebar .active {
+    background: var(--color-light);
+}
+
+.container .left .sidebar .active i, 
+.container .left .sidebar .active h3 {
+    color: var(--color-primary);
+}
+
+.container .left .sidebar .active::before {
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 100%;
+    position: absolute;
+    background: var(--color-primary);
+}
+
+.container .left .sidebar .menu-item:first-child.active {
+    border-top-left-radius: var(--card-border-radius);
+    overflow: hidden;
+}
+
+.container .left .sidebar .menu-item:last-child.active {
+    border-bottom-left-radius: var(--card-border-radius);
+    overflow: hidden;
+}
+
+.container .left .btn {
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    margin-bottom: 0.7rem;
+}
+
+/* =============== Notification Popup ============== */
+.left .notifications-popup {
+    position: absolute;
+    top: 0;
+    left: 110%;
+    width: 30rem;
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: 0 0 2rem hsl(var(--color-primary), 75%, 60%, 25%);
+    z-index: 8;
+    display: none;
+}
+
+.left .notifications-popup::before {
+    content: "";
+    width: 1.2rem;
+    height: 1.2rem;
+    display: block;
+    background: var(--color-white);
+    position: absolute;
+    left: -0.6rem;
+    transform: rotate(45deg);
+}
+
+.left .notifications-popup > div {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.left .notifications-popup small {
+    display: block;
+}
+@media screen and(max-width:1200px){
+    .left {
+        width: 5rem;
+        z-index: 5;
+    }
+
+    main .container .left .profile {
+        display: none;
+    }
+
+    .sidebar h3 {
+        display: none;
+    }
+
+    .left .btn {
+        display: none;
+    }
+
+}
+@media screen and (max-width: 992px) {
+  
+     .container {
+        grid-template-columns: 0 auto 5rem;
+        gap: 0;
+    }
+
+     .container .left {
+        grid-column: 3/4;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+
+   
+    .left .notifications-popup { 
+        position: absolute;
+        left: -20rem;
+        width: 20rem;
+    }
+
+    .left .notifications-popup::before {
+        display: absolute;
+        top: 1.3rem;
+        left: calc(20rem - 0.6rem);
+        display: block;
+    }
+
+    main .container .middle {
+        grid-column: 1/3;
+    }
+
+    main .container .right {
+        display: none;
+    }
+
+    .customize-theme .card {
+        width: 80vw; 
+    }
+}
